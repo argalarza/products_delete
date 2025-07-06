@@ -2,11 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from ariadne import load_schema_from_path, make_executable_schema
 from ariadne.asgi import GraphQL
-from .resolvers import query  # ajusta esto a tu archivo de resolvers
+from .resolvers import mutation  # ✅ No importas query porque no existe
 
 type_defs = load_schema_from_path("app/schema.graphql")
-schema = make_executable_schema(type_defs, query)
-
+schema = make_executable_schema(type_defs, mutation)
 app = FastAPI()
 
 # ✅ Habilita CORS para todas las fuentes
