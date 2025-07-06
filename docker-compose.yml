@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  delete-product-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: delete-product-service
+    ports:
+      - "4009:4009"
+    env_file:
+      - .env
+    restart: always
